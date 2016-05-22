@@ -1,0 +1,101 @@
+---
+title: "Live Session 2 Assignment 403"
+author: "Mike Martos"
+date: "May 18, 2016"
+output: 
+  html_document :
+    keep_md : true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#Calculation Questions (using R)
+##1.	Basic Math
+
+###a.	The log of a positive number
+```{r Log}
+log(10)
+```
+###b.	What is the default base for the log function? Calculate the log of your previous number with a different base.
+Natural Logarithm
+
+###c.	The log of a negative number 
+NaN not possible to take the log of a negative number
+
+###d.	The square-root of a positive number
+```{r Sqrt}
+sqrt(81)
+```
+
+ 
+##2.	Random number generation.
+
+###a.	Create a vector of 15 standard normal random variables. Calculate its mean and SD.
+```{r  rnorm(15)}
+vec <- rnorm(15)
+sd(vec)
+mean(vec)
+```
+
+ 
+###b.	Change the mean to 10 and the SD to 2 and recalculate the vector of 15 random normal variables. Calculate its mean and SD.
+```{r rnorm}
+rnorm(15, mean = 10, sd = 2)
+vec_10_2 <- rnorm(15,10,2)
+sd(vec_10_2)
+mean(vec_10_2)
+```
+
+ 
+###c.	Why are the means and SD not exactly the same as the means and SDs specified in the function?
+Because it is random and the more samples the closer the mean and SD will be to the defined values in the function
+
+##3.	 Vector Operations
+
+###a.	The weights of 6 individuals in kg are 60, 72, 57, 90, 95, 72
+###b.	Their heights (in m) are 1.80, 1.85, 1.72, 1.90, 1.74, 1.91
+###c.	Enter these vectors into R
+```{r Create Vectors}
+weight <- c(60, 72, 57, 90, 95, 72)
+height <- c(1.80, 1.85, 1.72, 1.90, 1.74, 1.91)
+```
+
+
+###d.	Create a scatterplot of weight vs. height. Interpret the scatterplot.
+```{r Scatterplot}
+plot(weight, height, main="Scatterplot Example", xlab="Weights", ylab="Heights")
+```
+
+ 
+The points seem disperse but there is a positive relationship between weight and height.
+ 
+###e.	Calculate the BMI for each individual (BMI = weight in kg divided by the square of the height in m)
+```{r bmi}
+bmi <- (weight/height^2)
+print(bmi)
+```
+
+ 
+###f.	Calculate the mean for weight
+```{r mean Weight}
+mean(weight)
+```
+
+
+###g.	Subtract the mean from each value of weight
+```{r Weight difference}
+wm <- (weight-mean(weight))
+print(wm)
+```
+
+ 
+###h.	Sum the result. Now you know why we square the deviations from the mean to calculate a standard deviation!
+```{r Sum Weight differendce}
+sum(wm)
+```
+Very small number (0)
+
+
+
